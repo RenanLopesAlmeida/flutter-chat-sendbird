@@ -1,6 +1,9 @@
 part of '../chat_page.dart';
 
 class _AppBarDoubtChat extends StatelessWidget {
+  const _AppBarDoubtChat({required this.handlePickImage});
+  final Function(int index) handlePickImage;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -24,9 +27,14 @@ class _AppBarDoubtChat extends StatelessWidget {
         ],
       ),
       actions: [
-        Container(
-          margin: EdgeInsets.only(right: 8),
-          child: InkWell(onTap: () {}, child: CircleAvatar()),
+        PopupMenuButton<int>(
+          onSelected: handlePickImage,
+          itemBuilder: (BuildContext context) {
+            return [
+              PopupMenuItem<int>(
+                  value: 0, child: Text('Enviar Foto da galeria'))
+            ];
+          },
         ),
       ],
     );

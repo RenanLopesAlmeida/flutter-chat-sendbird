@@ -31,6 +31,8 @@ dependencies:
   sendbird_sdk: 3.1.0
   rxdart: 0.27.1
   intl: 0.17.0
+  zoom_pinch_overlay: 1.1.2
+  image_picker: 0.8.2
 
 
 dev_dependencies:

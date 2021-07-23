@@ -26,7 +26,7 @@ class _ChatMessageDeliveredInfo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          if (showSeenMessageIcon) Icon(Icons.done),
+          if (showSeenMessageIcon) Icon(Icons.done_all),
           Container(
             margin: EdgeInsets.only(
               top: 3,
