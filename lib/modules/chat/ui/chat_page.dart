@@ -206,7 +206,7 @@ class ChatPage extends StatelessWidget with SendBird.ChannelEventHandler {
 
     final readMembers = channel.getReadMembers(lastMessage);
 
-    readMembers.first.lastSeenAt;
+    //readMembers.first.lastSeenAt;
   }
 
   void _scrollToTheBottom() {

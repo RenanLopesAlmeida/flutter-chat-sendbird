@@ -144,7 +144,13 @@ class _ChatBubbleMessage extends StatelessWidget {
             color: bubbleMessageBackgroundColor,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Image.network(imageUrl, fit: BoxFit.contain),
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.contain,
+            errorBuilder: (context, error, stackTrace) {
+              return const Text('😢');
+            },
+          ),
         ),
       ),
     );

@@ -1,15 +1,14 @@
 import 'package:chat/modules/chat/ui/chat_page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter/foundation.dart';
-
 import 'package:sendbird_sdk/sendbird_sdk.dart' as SendBird;
 
 //const USER_ID = 'UID123456789';
 
 class ConnectChatPage extends StatelessWidget {
-  final SendBird.SendbirdSdk sendBird =
-      SendBird.SendbirdSdk(appId: 'B153AFC0-DDE8-4AC4-BBCA-6EB97CF4CE6B');
+  final SendBird.SendbirdSdk sendBird = SendBird.SendbirdSdk(
+    appId: '06BE9940-60F0-4BD6-A302-992C7B524805',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -42,38 +41,24 @@ class ConnectChatPage extends StatelessWidget {
   }
 
   Future<SendBird.User> _connectToSendBirdServer() async {
-    String userID = '';
-    String nickname = '';
+    String nickname = 'Aluno';
 
-    if (kReleaseMode) {
-      userID = 'UID123456789';
-      nickname = 'Aluno';
-    } else {
-      userID = '123456';
-      nickname = 'professor';
-    }
-
-    return sendBird.connect(userID, nickname: nickname);
+    return sendBird.connect(USER_ID, nickname: nickname);
   }
 
   Future<SendBird.GroupChannel?> _createGroupChannel(
       SendBird.User sendBirdUser) async {
-    String userID = '';
-
-    if (kReleaseMode) {
-      userID = 'UID123456789';
-    } else {
-      userID = '123456';
-    }
-    var adminID = '271297';
+    var adminID = '844761';
 
     final groupParams = SendBird.GroupChannelParams()
-      ..userIds = [userID, adminID]
+      ..userIds = [USER_ID, adminID]
 
       //..operatorUserIds = [adminID]
-      ..name = 'ChatV01'
+      ..name = 'ChattV05'
       ..isDistinct = true;
 
     return await SendBird.GroupChannel.createChannel(groupParams);
   }
 }
+
+const USER_ID = '1234568910';
